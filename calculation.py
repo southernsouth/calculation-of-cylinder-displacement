@@ -18,11 +18,11 @@ def v():
     S = h * pi * ((R + R) ** 2) / 4
     V = S * 1000
 
-    res_A = "Бочка вмещает " + str(V) + " литров."
+    res_A = "Целіндер має " + str(V) + " літрів."
 
     col = (R * 2) / m
 
-    res_B = "Всего частей - " + str(col)
+    res_B = "Всього частин - " + str(col)
 
     i = 1
     a = []
@@ -32,12 +32,12 @@ def v():
         Ss = (R ** 2) * math.acos(1 - H / R) - (R - H) * (2 * R * H - (H ** 2)) ** 0.5
         Ss = (Ss * h)
 
-        a.append(str(i) + " - " + str(Ss * 1000) + " литров")
+        a.append(str(i) + " - " + str(Ss * 1000) + " літрів")
         H = H + m
 
         i = i + 1
         if i == col:
-            a.append( str(int(col)) + " - " + str(V) + " литров")
+            a.append( str(int(col)) + " - " + str(V) + " літрів")
 
     n_A = 0
     n_B = 1
@@ -69,13 +69,13 @@ def v():
     reslab.grid(column=1, row=3, sticky=W)
 
     global butreres
-    butreres = ttk.Button(frame, text="Перерасчитать", command=reres)
+    butreres = ttk.Button(frame, text="Перерахувати", command=reres)
     butreres.grid(column=4, row=2, sticky = W)
     clik.grid_remove()
 
 window = Tk()
-window.title("Расчет литража цилиндра.")
-window.geometry('625x300')
+window.title("Разрахунок літражу целіндра.")
+window.geometry('630x300')
 
 main_frame = ttk.Frame(window)
 main_frame.pack(fill=BOTH, expand=1)
@@ -100,24 +100,24 @@ frameimg.grid(column=1, row=1)
 frameres = ttk.Frame(win)
 frameres.grid(column=1, row=2)
 
-hlab = ttk.Label(frame, text="  h в см -").grid(column=1, row=1, sticky = W)
+hlab = ttk.Label(frame, text="  Висота целіндра в см -").grid(column=1, row=1, sticky = W)
 hent = StringVar()
 hhent = ttk.Entry(frame, textvariable=hent).grid(column=2, row=1, sticky = W)
 
-Rlab = ttk.Label(frame, text="  R в см -").grid(column=1, row=2, sticky = W)
+Rlab = ttk.Label(frame, text="  Радіус целіндра в см -").grid(column=1, row=2, sticky = W)
 Rent = StringVar()
 RRent = ttk.Entry(frame, textvariable=Rent).grid(column=2, row=2, sticky = W)
 
-mlab = ttk.Label(frame, text="  m в см -").grid(column=1, row=3, sticky = W)
+mlab = ttk.Label(frame, text="  Висота рідини у целіндрі у наклоні в см -").grid(column=1, row=3, sticky = W)
 ment = StringVar()
 mment = ttk.Entry(frame, textvariable=ment).grid(column=2, row=3, sticky = W)
 
-clik = ttk.Button(frame, command=v,text="Расчитать")
+clik = ttk.Button(frame, command=v,text="Розрахувати")
 clik.grid(column=4, row=2, sticky = W)
 window.bind(v)
 
-img = ImageTk.PhotoImage(Image.open("3.png"))
-imgL = ttk.Label(frameimg, image = img).grid(column=1, row=1, sticky=W)
+#img = ImageTk.PhotoImage(Image.open("image.png"))
+#imgL = ttk.Label(frameimg, image = img).grid(column=1, row=1, sticky=W)
 
 window.update_idletasks()
 
